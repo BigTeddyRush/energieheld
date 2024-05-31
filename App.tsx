@@ -13,17 +13,29 @@ const HomeScreen: React.FC<HomeScreenProps> = ({ navigation }) => {
     <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
       <Text>Home Screen</Text>
       <Button
-        title="Go to Details"
-        onPress={() => navigation.navigate("Details")}
+        title="Wechsel zur Eingabe"
+        onPress={() => navigation.navigate("Eingabe")}
       />
     </View>
   );
 };
 
-const DetailsScreen: React.FC = () => {
+const InputScreen: React.FC<HomeScreenProps> = ({ navigation }) => {
   return (
     <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
-      <Text>Details Screen</Text>
+      <Text>Input Screen</Text>
+      <Button
+        title="Zeige die Visualisierung"
+        onPress={() => navigation.navigate("Visualisierung")}
+      />
+    </View>
+  );
+};
+
+const VisualScreen: React.FC = () => {
+  return (
+    <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
+      <Text>Visualisierung</Text>
     </View>
   );
 };
@@ -42,9 +54,10 @@ const App: React.FC = () => {
   return (
     <NavigationContainer>
       <Tab.Navigator>
-        <Tab.Screen name="Home" component={HomeScreen} />
-        <Tab.Screen name="Details" component={DetailsScreen} />
-        <Tab.Screen name="Profile" component={ProfileScreen} />
+        <Tab.Screen name="HomeScreen" component={HomeScreen} />
+        <Tab.Screen name="Eingabe" component={InputScreen} />
+        <Tab.Screen name="Visualisierung" component={VisualScreen} />
+        <Tab.Screen name="Energiespartips" component={ProfileScreen} />
       </Tab.Navigator>
     </NavigationContainer>
   );
